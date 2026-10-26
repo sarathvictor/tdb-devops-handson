@@ -1,5 +1,8 @@
 # syntax=docker/dockerfile:1
 FROM python:3.12-slim
+LABEL org.opencontainers.image.title="Booking Service" \
+      org.opencontainers.image.description="Containerized booking service API" \
+      org.opencontainers.image.source="https://github.com/sarathvictor/tdb-devops-handson"
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
