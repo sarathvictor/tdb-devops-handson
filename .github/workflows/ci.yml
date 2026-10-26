@@ -64,6 +64,9 @@ jobs:
     needs:
       - test
       - container-scan
+      - helm-validate
+      - terraform-validate
+      - prometheus-rules
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
 
     permissions:
