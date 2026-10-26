@@ -6,8 +6,10 @@ groups:
           (
             sum(rate(booking_requests_total{outcome="success_under_1s"}[5m]))
             /
-            clamp_min(sum(rate(booking_requests_total[5m])), 0.001)
+            sum(rate(booking_requests_total[5m]))
           ) < 0.999
+          and
+          sum(rate(booking_requests_total[5m])) > 0
         for: 10m
         labels:
           severity: warning
@@ -15,7 +17,7 @@ groups:
         annotations:
           summary: "Booking SLI is below the 99.9% target"
           description: "Fewer than 99.9% of observed booking requests are succeeding in under one second over the recent window. Check traffic, errors and latency."
-          runbook_url: "https://github.com/OWNER/tdb-devops-handson/blob/main/monitoring/runbooks/booking-availability.md"
+          runbook_url: "https://github.com/sarathvictor/tdb-devops-handson/blob/main/monitoring/runbooks/booking-availability.md"
       - alert: BookingFailuresOrSlowResponsesElevated
         expr: |
           (
@@ -23,9 +25,11 @@ groups:
             (
               sum(rate(booking_requests_total{outcome="success_under_1s"}[30m]))
               /
-              clamp_min(sum(rate(booking_requests_total[30m])), 0.001)
+              sum(rate(booking_requests_total[30m]))
             )
           ) > 0.005
+          and
+          sum(rate(booking_requests_total[30m])) > 0
         for: 10m
         labels:
           severity: critical
@@ -33,4 +37,4 @@ groups:
         annotations:
           summary: "Booking error budget is burning quickly"
           description: "More than 0.5% of booking requests are failing or taking at least one second over the recent window."
-          runbook_url: "https://github.com/OWNER/tdb-devops-handson/blob/main/monitoring/runbooks/booking-availability.md"
+          runbook_url: "https://github.com/sarathvictor/tdb-devops-handson/blob/main/monitoring/runbooks/booking-availability.md"
