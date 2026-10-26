@@ -3,5 +3,5 @@ output "vpc_id" {
 }
 output "database_endpoint" {
   description = "Private RDS endpoint hostname:port."
-  value = module.database.endpoint
+  value       = module.database.endpoint
 }
