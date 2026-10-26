@@ -1,6 +1,6 @@
 replicaCount: 3
 image:
-  repository: ghcr.io/OWNER/tdb-devops-handson
+  repository: ghcr.io/sarathvictor/tdb-devops-handson
   # Prefer the exact commit SHA tag for releases.
   tag: latest
   pullPolicy: IfNotPresent

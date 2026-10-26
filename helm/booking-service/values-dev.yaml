@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
-  repository: ghcr.io/OWNER/tdb-devops-handson
+  repository: ghcr.io/sarathvictor/tdb-devops-handson
   tag: latest
   pullPolicy: IfNotPresent
 autoscaling:
