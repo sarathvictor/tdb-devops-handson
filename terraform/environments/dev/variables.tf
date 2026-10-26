@@ -1,35 +1,34 @@
 variable "aws_region" {
-  type = string
+  type        = string
   description = "AWS region."
-  default = "ap-south-1"
+  default     = "ap-south-1"
 }
 variable "environment" {
-  type = string
+  type        = string
   description = "Environment name."
-  default = "dev"
+  default     = "dev"
   validation {
-    condition = contains(["dev", "prod"], var.environment)
+    condition     = contains(["dev", "prod"], var.environment)
     error_message = "environment must be dev or prod."
   }
 }
 variable "vpc_cidr" {
-  type = string
+  type        = string
   description = "VPC IPv4 CIDR."
-  default = "10.40.0.0/16"
+  default     = "10.40.0.0/16"
 }
 variable "db_username" {
-  type = string
+  type        = string
   description = "PostgreSQL master username."
-  default = "booking_admin"
+  default     = "booking_admin"
 }
 variable "db_password" {
-  type = string
+  type        = string
   description = "Inject securely; never commit this value."
-  sensitive = true
-  ephemeral = true
+  sensitive   = true
 }
 variable "db_instance_class" {
-  type = string
+  type        = string
   description = "RDS instance class."
-  default = "db.t3.micro"
+  default     = "db.t3.micro"
 }
