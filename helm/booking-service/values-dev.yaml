@@ -1,0 +1,16 @@
+replicaCount: 1
+image:
+  repository: ghcr.io/OWNER/tdb-devops-handson
+  tag: latest
+  pullPolicy: IfNotPresent
+autoscaling:
+  enabled: false
+podDisruptionBudget:
+  enabled: false
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 250m
+    memory: 128Mi

@@ -1,0 +1,12 @@
+.git
+.github
+.venv
+__pycache__
+.pytest_cache
+.ruff_cache
+*.pyc
+*.tfstate
+*.tfstate.*
+.env
+.env.*
+README.md
